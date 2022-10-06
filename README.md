@@ -1,2 +1,2 @@
 # sgq-quality-compliance
-Módulo de Cadastro de Incidentes e Problemas
+Microsserviço de Cadastro de Incidentes e Problemas
