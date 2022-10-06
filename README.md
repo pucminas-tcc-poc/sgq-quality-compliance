@@ -1,2 +1,2 @@
 # sgq-quality-compliance
-A microservice to manage quality compliance
+Módulo de Cadastro de Incidentes e Problemas
