@@ -1,7 +1,7 @@
 USE sgq-quality-compliance;
 
 CREATE TABLE departament (
-  id_departament BIGINT NOT NULL,
+  id_departament BIGINT NOT NULL AUTO_INCREMENT,
    des_departament VARCHAR(255) NULL,
    des_location VARCHAR(255) NULL,
    dt_creation datetime NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE departament (
 );
 
 CREATE TABLE non_compliance (
-  id_non_compliance BIGINT NOT NULL,
+  id_non_compliance BIGINT NOT NULL AUTO_INCREMENT,
    des_non_compliance VARCHAR(255) NULL,
    des_operational_consequence VARCHAR(255) NULL,
    des_type VARCHAR(255) NULL,
@@ -20,7 +20,7 @@ CREATE TABLE non_compliance (
 );
 
 CREATE TABLE part (
-  id_part BIGINT NOT NULL,
+  id_part BIGINT NOT NULL AUTO_INCREMENT,
    des_name VARCHAR(255) NULL,
    des_model VARCHAR(255) NULL,
    num_serial_number BIGINT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE part (
 );
 
 CREATE TABLE vehicle (
-  id_vehicle BIGINT NOT NULL,
+  id_vehicle BIGINT NOT NULL AUTO_INCREMENT,
    des_name VARCHAR(255) NULL,
    des_model VARCHAR(255) NULL,
    dt_release datetime NULL,
@@ -40,7 +40,7 @@ CREATE TABLE vehicle (
 );
 
 CREATE TABLE role (
-  id_role BIGINT NOT NULL,
+  id_role BIGINT NOT NULL AUTO_INCREMENT,
    des_name VARCHAR(255) NULL,
    dt_creation datetime NOT NULL,
    dt_update datetime NULL,
@@ -48,7 +48,7 @@ CREATE TABLE role (
 );
 
 CREATE TABLE profile (
-  id_profile BIGINT NOT NULL,
+  id_profile BIGINT NOT NULL AUTO_INCREMENT,
    des_profile VARCHAR(255) NULL,
    dt_creation datetime NOT NULL,
    dt_update datetime NULL,
@@ -56,7 +56,7 @@ CREATE TABLE profile (
 );
 
 CREATE TABLE user (
-  id_user BIGINT NOT NULL,
+  id_user BIGINT NOT NULL AUTO_INCREMENT,
    des_name VARCHAR(255) NULL,
    des_email VARCHAR(255) NULL,
    des_document VARCHAR(255) NULL,
@@ -84,7 +84,7 @@ ALTER TABLE user_profile ADD CONSTRAINT fk_usepro_on_profile_entity FOREIGN KEY 
 ALTER TABLE user_profile ADD CONSTRAINT fk_usepro_on_user_entity FOREIGN KEY (id_user) REFERENCES user (id_user);
 
 CREATE TABLE non_compliance_action (
-  id_non_compliance_action BIGINT NOT NULL,
+  id_non_compliance_action BIGINT NOT NULL AUTO_INCREMENT,
    des_immediate_action VARCHAR(255) NULL,
    des_follow_up_action VARCHAR(255) NULL,
    dt_due_date datetime NULL,
@@ -97,7 +97,7 @@ CREATE TABLE non_compliance_action (
 ALTER TABLE non_compliance_action ADD CONSTRAINT fk_non_compliance_action_on_id_non_compliance FOREIGN KEY (id_non_compliance) REFERENCES non_compliance (id_non_compliance);
 
 CREATE TABLE incident (
-  id_incident BIGINT NOT NULL,
+  id_incident BIGINT NOT NULL AUTO_INCREMENT,
    des_incident VARCHAR(255) NULL,
    des_status VARCHAR(255) NULL,
    des_type VARCHAR(255) NULL,

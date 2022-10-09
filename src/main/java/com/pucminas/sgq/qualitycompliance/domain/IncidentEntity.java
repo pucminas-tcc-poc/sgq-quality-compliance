@@ -6,23 +6,26 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
 @Table(name = "incident")
-public class IncidentEntity extends BaseEntity {
+public class IncidentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_incident", nullable = false)
     private Long id;
 
     @Column(name = "des_incident")
-    private String incident;
+    private String description;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "des_status")
     private IncidentStatus status;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "des_type")
     private IncidentType type;
 
@@ -47,4 +50,10 @@ public class IncidentEntity extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_user")
     private UserEntity responsible;
+
+    @Column(name = "dt_creation", nullable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "dt_update")
+    private LocalDateTime updateDate;
 }

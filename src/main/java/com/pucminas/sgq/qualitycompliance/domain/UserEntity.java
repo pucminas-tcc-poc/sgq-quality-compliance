@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,9 +13,9 @@ import java.util.Set;
 @Entity
 @EqualsAndHashCode
 @Table(name = "user")
-public class UserEntity extends BaseEntity {
+public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false)
     private Long id;
 
@@ -31,6 +31,7 @@ public class UserEntity extends BaseEntity {
     @Column(name = "des_phone")
     private String phone;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "des_genre")
     private UserGenre genre;
 
@@ -44,4 +45,10 @@ public class UserEntity extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_departament")
     private DepartamentEntity departament;
+
+    @Column(name = "dt_creation", nullable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "dt_update")
+    private LocalDateTime updateDate;
 }

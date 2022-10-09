@@ -4,16 +4,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
 @Table(name = "vehicle")
-public class VehicleEntity extends BaseEntity {
+public class VehicleEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_vehicle", nullable = false)
     private Long id;
 
@@ -25,4 +24,10 @@ public class VehicleEntity extends BaseEntity {
 
     @Column(name = "dt_release")
     private LocalDateTime releaseDate;
+
+    @Column(name = "dt_creation", nullable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "dt_update")
+    private LocalDateTime updateDate;
 }

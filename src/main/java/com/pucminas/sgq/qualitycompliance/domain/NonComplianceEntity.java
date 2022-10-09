@@ -5,14 +5,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
 @Table(name = "non_compliance")
-public class NonComplianceEntity extends BaseEntity {
+public class NonComplianceEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_non_compliance", nullable = false)
     private Long id;
 
@@ -23,5 +24,12 @@ public class NonComplianceEntity extends BaseEntity {
     private String operationalConsequence;
 
     @Column(name = "des_type")
+    @Enumerated(EnumType.STRING)
     private NonComplianceType type;
+
+    @Column(name = "dt_creation", nullable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "dt_update")
+    private LocalDateTime updateDate;
 }

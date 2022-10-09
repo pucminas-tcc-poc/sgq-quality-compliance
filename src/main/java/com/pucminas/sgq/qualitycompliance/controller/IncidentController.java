@@ -18,7 +18,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class IncidentController {
 
     @Autowired
@@ -75,7 +75,7 @@ public class IncidentController {
     @PostMapping("/incidents")
     public ResponseEntity<IncidentEntity> createIncident(@RequestBody IncidentVO incidentVO) {
         try {
-            IncidentEntity incidentEntity = incidentService.save(IncidentConverter.toEntity(incidentVO));
+            IncidentEntity incidentEntity = incidentService.createIncident(incidentVO);
             return new ResponseEntity<>(incidentEntity, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

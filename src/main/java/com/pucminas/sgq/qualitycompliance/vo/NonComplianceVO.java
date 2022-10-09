@@ -11,6 +11,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class NonComplianceVO {
     String nonCompliance;
-    String OperationalConsequence;
+    String operationalConsequence;
     String type;
 }

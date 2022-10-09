@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,9 +12,9 @@ import java.util.Set;
 @Entity
 @EqualsAndHashCode
 @Table(name = "profile")
-public class ProfileEntity extends BaseEntity {
+public class ProfileEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_profile", nullable = false)
     private Long id;
 
@@ -30,4 +30,10 @@ public class ProfileEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "id_user")
     )
     private Set<UserEntity> users = new HashSet<>();
+
+    @Column(name = "dt_creation", nullable = false)
+    private LocalDateTime creationDate;
+
+    @Column(name = "dt_update")
+    private LocalDateTime updateDate;
 }

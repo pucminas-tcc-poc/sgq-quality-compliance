@@ -14,6 +14,6 @@ public class UserVO {
     String phone;
     String document;
     UserGenre genre;
-    RoleVO roleVO;
-    DepartamentVO departamentVO;
+    RoleVO role;
+    DepartamentVO departament;
 }
