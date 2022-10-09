@@ -5,13 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Data
 @Entity
 @EqualsAndHashCode
 @Table(name = "NON_COMPLIANCE")
-public class NonComplianceEntity extends BaseEntity implements Serializable {
+public class NonComplianceEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_NON_COMPLIANCE", nullable = false)
@@ -23,6 +22,6 @@ public class NonComplianceEntity extends BaseEntity implements Serializable {
     @Column(name = "DES_OPERATIONAL_CONSEQUENCE")
     private String operationalConsequence;
 
-    @Column(name = "DES_OPERATIONAL_CONSEQUENCE")
+    @Column(name = "DES_TYPE")
     private NonComplianceType type;
 }

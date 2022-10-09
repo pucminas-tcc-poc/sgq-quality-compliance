@@ -7,7 +7,6 @@ import lombok.*;
 @Builder
 @ToString
 @AllArgsConstructor
-public class VehicleVO {
-    String name;
-    String model;
+public class ProfileVO {
+    String profile;
 }

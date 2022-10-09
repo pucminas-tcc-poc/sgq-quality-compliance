@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @EqualsAndHashCode
 @Table(name = "VEHICLE")
-public class VehicleEntity extends BaseEntity implements Serializable {
+public class VehicleEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_VEHICLE", nullable = false)

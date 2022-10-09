@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @EqualsAndHashCode
 @Table(name = "PART")
-public class PartEntity extends BaseEntity implements Serializable {
+public class PartEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_PART", nullable = false)

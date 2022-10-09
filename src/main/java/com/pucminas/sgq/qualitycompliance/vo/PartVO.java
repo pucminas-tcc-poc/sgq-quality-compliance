@@ -7,6 +7,8 @@ import lombok.*;
 @Builder
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
 public class PartVO {
+    String name;
+    String model;
+    Long serialNumber;
 }

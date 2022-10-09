@@ -1,5 +1,6 @@
 package com.pucminas.sgq.qualitycompliance.service;
 
+import com.pucminas.sgq.qualitycompliance.converter.IncidentConverter;
 import com.pucminas.sgq.qualitycompliance.domain.IncidentEntity;
 import com.pucminas.sgq.qualitycompliance.enums.IncidentStatus;
 import com.pucminas.sgq.qualitycompliance.enums.IncidentType;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IncidentService {
@@ -20,6 +22,10 @@ public class IncidentService {
         return incidentRepository.findAll();
     }
 
+    public Optional<IncidentEntity> findById(Long id) {
+        return incidentRepository.findById(id);
+    }
+
     public List<IncidentEntity> getAllIncidentsByStatus(IncidentStatus status) {
         return incidentRepository.findByStatus(status.toString());
     }
@@ -28,10 +34,8 @@ public class IncidentService {
         return incidentRepository.findByType(type.toString());
     }
 
-    public IncidentEntity save(IncidentVO incidentVO) {
-        // TODO create entityToVOConverter
-//        return incidentRepository.save(incidentEntity);
-        return null;
+    public IncidentEntity save(IncidentEntity incidentEntity) {
+        return incidentRepository.save(incidentEntity);
     }
 
     public void deleteById(Long id) {

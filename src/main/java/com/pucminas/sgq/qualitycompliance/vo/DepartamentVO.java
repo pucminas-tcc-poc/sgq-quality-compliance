@@ -8,12 +8,7 @@ import lombok.*;
 @Builder
 @ToString
 @AllArgsConstructor
-public class UserVO {
-    String name;
-    String email;
-    String phone;
-    String document;
-    UserGenre genre;
-    RoleVO roleVO;
-    DepartamentVO departamentVO;
+public class DepartamentVO {
+    String departament;
+    String location;
 }

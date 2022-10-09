@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @EqualsAndHashCode
 @Table(name = "NON_COMPLIANCE_ACTION")
-public class NonComplianceActionEntity extends BaseEntity implements Serializable {
+public class NonComplianceActionEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_NON_COMPLIANCE_ACTION", nullable = false)

@@ -2,11 +2,15 @@ package com.pucminas.sgq.qualitycompliance.vo;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Builder
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
 public class NonComplianceVO {
+    String nonCompliance;
+    String OperationalConsequence;
+    String type;
 }

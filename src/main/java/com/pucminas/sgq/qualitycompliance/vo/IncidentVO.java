@@ -8,15 +8,14 @@ import lombok.*;
 @Builder
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
 public class IncidentVO {
-    private String incident;
-    private IncidentStatus status;
-    private String place;
-    private String demage;
-    private PartVO partVO;
-    private VehicleVO vehicleVO;
-    private NonComplianceVO nonComplianceVO;
-    private UserVO userVO;
+    String incident;
+    IncidentStatus status;
+    String place;
+    String demage;
+    PartVO partVO;
+    VehicleVO vehicleVO;
+    UserVO userVO;
+    NonComplianceVO nonComplianceVO;
 }
 

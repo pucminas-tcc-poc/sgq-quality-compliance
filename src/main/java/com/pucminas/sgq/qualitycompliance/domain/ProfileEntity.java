@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @EqualsAndHashCode
 @Table(name = "PROFILE")
-public class ProfileEntity extends BaseEntity implements Serializable  {
+public class ProfileEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID_PROFILE", nullable = false)
