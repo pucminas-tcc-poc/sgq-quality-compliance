@@ -7,9 +7,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class BaseEntity {
-    @Column(name = "DT_CREATION", nullable = false)
+    @Column(name = "dt_creation", nullable = false)
     private LocalDateTime creationDate;
 
-    @Column(name = "DT_UPDATE")
+    @Column(name = "dt_update")
     private LocalDateTime updateDate;
 }

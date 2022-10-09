@@ -9,19 +9,19 @@ import javax.persistence.*;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "NON_COMPLIANCE")
+@Table(name = "non_compliance")
 public class NonComplianceEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_NON_COMPLIANCE", nullable = false)
+    @Column(name = "id_non_compliance", nullable = false)
     private Long id;
 
-    @Column(name = "DES_NON_COMPLIANCE")
+    @Column(name = "des_non_compliance")
     private String nonComplianceDescription;
 
-    @Column(name = "DES_OPERATIONAL_CONSEQUENCE")
+    @Column(name = "des_operational_consequence")
     private String operationalConsequence;
 
-    @Column(name = "DES_TYPE")
+    @Column(name = "des_type")
     private NonComplianceType type;
 }

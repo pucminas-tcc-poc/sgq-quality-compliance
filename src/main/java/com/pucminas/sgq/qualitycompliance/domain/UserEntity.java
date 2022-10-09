@@ -12,36 +12,36 @@ import java.util.Set;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "USER")
+@Table(name = "user")
 public class UserEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_USER", nullable = false)
+    @Column(name = "id_user", nullable = false)
     private Long id;
 
-    @Column(name = "DES_NAME")
+    @Column(name = "des_name")
     private String name;
 
-    @Column(name = "DES_EMAIL")
+    @Column(name = "des_email")
     private String email;
 
-    @Column(name = "DES_DOCUMENT")
+    @Column(name = "des_document")
     private String document;
 
-    @Column(name = "DES_PHONE")
+    @Column(name = "des_phone")
     private String phone;
 
-    @Column(name = "DES_GENRE")
+    @Column(name = "des_genre")
     private UserGenre genre;
 
     @ManyToMany(mappedBy = "users")
     private Set<ProfileEntity> profiles = new HashSet<>();
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ROLE")
+    @JoinColumn(name = "id_role")
     private RoleEntity role;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_DEPARTAMENT")
+    @JoinColumn(name = "id_departament")
     private DepartamentEntity departament;
 }

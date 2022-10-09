@@ -8,16 +8,16 @@ import javax.persistence.*;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "DEPARTAMENT")
+@Table(name = "departament")
 public class DepartamentEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_DEPARTAMENT", nullable = false)
+    @Column(name = "id_departament", nullable = false)
     private Long id;
 
-    @Column(name = "DES_DEPARTAMENT")
-    private String DEPARTAMENT;
+    @Column(name = "des_departament")
+    private String departament;
 
-    @Column(name = "DES_LOCATION")
+    @Column(name = "des_location")
     private String location;
 }

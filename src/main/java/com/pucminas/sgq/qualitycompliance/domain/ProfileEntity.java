@@ -11,23 +11,23 @@ import java.util.Set;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "PROFILE")
+@Table(name = "profile")
 public class ProfileEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_PROFILE", nullable = false)
+    @Column(name = "id_profile", nullable = false)
     private Long id;
 
-    @Column(name = "DES_PROFILE")
+    @Column(name = "des_profile")
     private String profile;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(name = "USER_PROFILE",
-            joinColumns = @JoinColumn(name = "ID_PROFILE"),
-            inverseJoinColumns = @JoinColumn(name = "ID_USER")
+    @JoinTable(name = "user_profile",
+            joinColumns = @JoinColumn(name = "id_profile"),
+            inverseJoinColumns = @JoinColumn(name = "id_user")
     )
     private Set<UserEntity> users = new HashSet<>();
 }

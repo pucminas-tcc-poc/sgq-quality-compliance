@@ -10,19 +10,19 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "VEHICLE")
+@Table(name = "vehicle")
 public class VehicleEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_VEHICLE", nullable = false)
+    @Column(name = "id_vehicle", nullable = false)
     private Long id;
 
-    @Column(name = "DES_NAME")
+    @Column(name = "des_name")
     private String name;
 
-    @Column(name = "DES_MODEL")
+    @Column(name = "des_model")
     private String model;
 
-    @Column(name = "DT_RELEASE")
+    @Column(name = "dt_release")
     private LocalDateTime releaseDate;
 }

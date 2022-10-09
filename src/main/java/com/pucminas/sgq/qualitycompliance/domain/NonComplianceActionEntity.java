@@ -5,33 +5,32 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "NON_COMPLIANCE_ACTION")
+@Table(name = "non_compliance_action")
 public class NonComplianceActionEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_NON_COMPLIANCE_ACTION", nullable = false)
+    @Column(name = "id_non_compliance_action", nullable = false)
     private Long id;
 
-    @Column(name = "DES_IMMEDIATE_ACTION")
+    @Column(name = "des_immediate_action")
     private String immediateAction;
 
-    @Column(name = "DES_FOLLOW_UP_ACTION")
+    @Column(name = "des_follow_up_action")
     private String followUpAction;
 
-    @Column(name = "DES_FOLLOW_UP_ACTION")
+    @Column(name = "des_status")
     private NonComplianceActionStatus status;
 
-    @Column(name = "DT_DUE_DATE")
+    @Column(name = "dt_due_date")
     private LocalDateTime dueDate;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_NON_COMPLIANCE")
+    @JoinColumn(name = "id_non_compliance")
     private NonComplianceEntity nonCompliance;
 
 }

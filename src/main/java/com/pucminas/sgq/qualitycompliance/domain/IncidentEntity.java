@@ -10,41 +10,41 @@ import javax.persistence.*;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "INCIDENT")
+@Table(name = "incident")
 public class IncidentEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_INCIDENT", nullable = false)
+    @Column(name = "id_incident", nullable = false)
     private Long id;
 
-    @Column(name = "DES_INCIDENT")
+    @Column(name = "des_incident")
     private String incident;
 
-    @Column(name = "DES_STATUS")
+    @Column(name = "des_status")
     private IncidentStatus status;
 
-    @Column(name = "DES_TYPE")
+    @Column(name = "des_type")
     private IncidentType type;
 
-    @Column(name = "DES_PLACE")
+    @Column(name = "des_place")
     private String place;
 
-    @Column(name = "DES_DEMAGE")
+    @Column(name = "des_demage")
     private String demage;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_PART")
+    @JoinColumn(name = "id_part")
     private PartEntity part;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_VEHICLE")
+    @JoinColumn(name = "id_vehicle")
     private VehicleEntity vehicle;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_NON_COMPLIANCE")
+    @JoinColumn(name = "id_non_compliance")
     private NonComplianceEntity nonCompliance;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_USER")
+    @JoinColumn(name = "id_user")
     private UserEntity responsible;
 }

@@ -9,19 +9,19 @@ import java.io.Serializable;
 @Data
 @Entity
 @EqualsAndHashCode
-@Table(name = "PART")
+@Table(name = "part")
 public class PartEntity extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID_PART", nullable = false)
+    @Column(name = "id_part", nullable = false)
     private Long id;
 
-    @Column(name = "DES_NAME")
+    @Column(name = "des_name")
     private String name;
 
-    @Column(name = "DES_MODEL")
+    @Column(name = "des_model")
     private String model;
 
-    @Column(name = "NUM_SERIAL_NUMBER")
+    @Column(name = "num_serial_number")
     private Long serialNumber;
 }
