@@ -1,19 +1,27 @@
 package com.pucminas.sgq.qualitycompliance.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.pucminas.sgq.qualitycompliance.enums.UserGenre;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @Entity
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Table(name = "user")
-public class UserEntity {
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user", nullable = false)
@@ -35,14 +43,14 @@ public class UserEntity {
     @Column(name = "des_genre")
     private UserGenre genre;
 
-    @ManyToMany(mappedBy = "users")
-    private Set<ProfileEntity> profiles = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private List<UserProfileEntity> userProfiles;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")
     private RoleEntity role;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_departament")
     private DepartamentEntity departament;
 

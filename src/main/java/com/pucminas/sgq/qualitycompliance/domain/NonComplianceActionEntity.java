@@ -1,17 +1,22 @@
 package com.pucminas.sgq.qualitycompliance.domain;
 
 import com.pucminas.sgq.qualitycompliance.enums.NonComplianceActionStatus;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "non_compliance_action")
-public class NonComplianceActionEntity {
+public class NonComplianceActionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_non_compliance_action", nullable = false)

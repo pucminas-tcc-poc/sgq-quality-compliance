@@ -51,3 +51,8 @@ INSERT INTO user_profile (id_user, id_profile) VALUES (1, 1);
 INSERT INTO user_profile (id_user, id_profile) VALUES (2, 3);
 INSERT INTO user_profile (id_user, id_profile) VALUES (3, 2);
 INSERT INTO user_profile (id_user, id_profile) VALUES (4, 4);
+
+-- NON_COMPLIANCE
+
+INSERT INTO non_compliance (id_non_compliance, des_non_compliance, des_operational_consequence, des_type, dt_creation)
+VALUES(1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'HIGH_LEVEL',  NOW());

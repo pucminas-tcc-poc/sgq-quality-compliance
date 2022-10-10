@@ -2,17 +2,22 @@ package com.pucminas.sgq.qualitycompliance.domain;
 
 import com.pucminas.sgq.qualitycompliance.enums.IncidentStatus;
 import com.pucminas.sgq.qualitycompliance.enums.IncidentType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @Entity
 @EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "incident")
-public class IncidentEntity {
+public class IncidentEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_incident", nullable = false)

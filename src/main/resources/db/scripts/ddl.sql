@@ -70,18 +70,16 @@ CREATE TABLE user (
 );
 
 ALTER TABLE user ADD CONSTRAINT fk_user_on_id_departament FOREIGN KEY (id_departament) REFERENCES departament (id_departament);
-
 ALTER TABLE user ADD CONSTRAINT fk_user_on_id_role FOREIGN KEY (id_role) REFERENCES `role` (id_role);
 
 CREATE TABLE user_profile (
   id_profile BIGINT NOT NULL,
-   id_user BIGINT not null,
-   CONSTRAINT pk_user_profile PRIMARY KEY (id_profile, id_user)
+   id_user BIGINT NOT NULL
 );
-
-ALTER TABLE user_profile ADD CONSTRAINT fk_usepro_on_profile_entity FOREIGN KEY (id_profile) REFERENCES profile (id_profile);
-
-ALTER TABLE user_profile ADD CONSTRAINT fk_usepro_on_user_entity FOREIGN KEY (id_user) REFERENCES user (id_user);
+ALTER TABLE user_profile ADD CONSTRAINT FK_USER_PROFILE_ON_ID_PROFILE FOREIGN KEY (id_profile) REFERENCES profile (id_profile);
+ALTER TABLE user_profile ADD CONSTRAINT FK_USER_PROFILE_ON_ID_USER FOREIGN KEY (id_user) REFERENCES user (id_user);
+CREATE INDEX user_profile_idx01 ON user_profile(id_user);
+CREATE INDEX user_profile_idx02 ON user_profile(id_profile);
 
 CREATE TABLE non_compliance_action (
   id_non_compliance_action BIGINT NOT NULL AUTO_INCREMENT,
