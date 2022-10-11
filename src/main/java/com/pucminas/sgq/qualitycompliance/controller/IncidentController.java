@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,7 +57,7 @@ public class IncidentController {
     }
 
     @PutMapping("/incidents/{id}")
-    public ResponseEntity<IncidentEntity> updateIncident(@PathVariable("id") long id, @RequestBody IncidentVO incidentVO) throws ParseException {
+    public ResponseEntity<IncidentEntity> updateIncident(@PathVariable("id") long id, @RequestBody IncidentVO incidentVO) {
         Optional<IncidentEntity> incidentOpt = incidentService.findById(id);
         if (incidentOpt.isPresent()) {
             IncidentEntity incidentEntity = incidentService.updateIncident(incidentOpt.get(), incidentVO);

@@ -35,7 +35,7 @@ public class NonComplianceActionEntity implements Serializable {
     @Column(name = "dt_due_date")
     private LocalDateTime dueDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_non_compliance")
     private NonComplianceEntity nonCompliance;
 

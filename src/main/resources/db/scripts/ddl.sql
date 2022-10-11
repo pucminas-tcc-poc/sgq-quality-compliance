@@ -85,6 +85,7 @@ CREATE TABLE non_compliance_action (
   id_non_compliance_action BIGINT NOT NULL AUTO_INCREMENT,
    des_immediate_action VARCHAR(255) NULL,
    des_follow_up_action VARCHAR(255) NULL,
+   des_status VARCHAR(255) NULL,
    dt_due_date datetime NULL,
    id_non_compliance BIGINT NULL,
    dt_creation datetime NOT NULL,

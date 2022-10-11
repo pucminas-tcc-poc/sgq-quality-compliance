@@ -3,8 +3,6 @@ package com.pucminas.sgq.qualitycompliance.vo;
 import com.pucminas.sgq.qualitycompliance.enums.NonComplianceActionStatus;
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Builder
@@ -13,7 +11,7 @@ import java.time.LocalDateTime;
 public class NonComplianceActionVO {
     String immediateAction;
     String followUpAction;
+    String dueDate;
     NonComplianceActionStatus status;
-    LocalDateTime dueDate;
-    NonComplianceVO nonComplianceVO;
+    Long nonComplianceId;
 }

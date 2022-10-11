@@ -2,7 +2,6 @@ package com.pucminas.sgq.qualitycompliance.service;
 
 import com.pucminas.sgq.qualitycompliance.domain.*;
 import com.pucminas.sgq.qualitycompliance.enums.IncidentStatus;
-import com.pucminas.sgq.qualitycompliance.enums.IncidentType;
 import com.pucminas.sgq.qualitycompliance.repository.IncidentRepository;
 import com.pucminas.sgq.qualitycompliance.vo.IncidentVO;
 import org.springframework.beans.factory.annotation.Autowired;
