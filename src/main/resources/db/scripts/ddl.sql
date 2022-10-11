@@ -112,9 +112,25 @@ CREATE TABLE incident (
 );
 
 ALTER TABLE incident ADD CONSTRAINT fk_incident_on_id_non_compliance FOREIGN KEY (id_non_compliance) REFERENCES non_compliance (id_non_compliance);
-
 ALTER TABLE incident ADD CONSTRAINT fk_incident_on_id_part FOREIGN KEY (id_part) REFERENCES part (id_part);
-
 ALTER TABLE incident ADD CONSTRAINT fk_incident_on_id_user FOREIGN KEY (id_user) REFERENCES user (id_user);
-
 ALTER TABLE incident ADD CONSTRAINT fk_incident_on_id_vehicle FOREIGN KEY (id_vehicle) REFERENCES vehicle (id_vehicle);
+
+CREATE TABLE problem (
+  id_problem BIGINT AUTO_INCREMENT NOT NULL,
+   des_problem VARCHAR(255) NULL,
+   des_type VARCHAR(255) NULL,
+   des_demage VARCHAR(255) NULL,
+   id_part BIGINT NULL,
+   id_vehicle BIGINT NULL,
+   id_non_compliance BIGINT NULL,
+   id_user BIGINT NULL,
+   dt_creation datetime NOT NULL,
+   dt_update datetime NULL,
+   CONSTRAINT pk_problem PRIMARY KEY (id_problem)
+);
+
+ALTER TABLE problem ADD CONSTRAINT FK_PROBLEM_ON_ID_NON_COMPLIANCE FOREIGN KEY (id_non_compliance) REFERENCES non_compliance (id_non_compliance);
+ALTER TABLE problem ADD CONSTRAINT FK_PROBLEM_ON_ID_PART FOREIGN KEY (id_part) REFERENCES part (id_part);
+ALTER TABLE problem ADD CONSTRAINT FK_PROBLEM_ON_ID_USER FOREIGN KEY (id_user) REFERENCES user (id_user);
+ALTER TABLE problem ADD CONSTRAINT FK_PROBLEM_ON_ID_VEHICLE FOREIGN KEY (id_vehicle) REFERENCES vehicle (id_vehicle);

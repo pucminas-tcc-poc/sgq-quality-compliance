@@ -20,6 +20,19 @@ public class IncidentController {
     @Autowired
     private IncidentService incidentService;
 
+    @GetMapping("/incident/{id}")
+    public ResponseEntity<IncidentEntity> getById(@PathVariable("id") long id) {
+        try {
+            Optional<IncidentEntity> incidentOpt = incidentService.findById(id);
+            if (incidentOpt.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(incidentOpt.get(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @GetMapping("/incidents")
     public ResponseEntity<List<IncidentEntity>> getAllIncidents() {
         try {

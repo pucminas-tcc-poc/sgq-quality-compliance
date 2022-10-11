@@ -1,5 +1,6 @@
 package com.pucminas.sgq.qualitycompliance.controller;
 
+import com.pucminas.sgq.qualitycompliance.domain.IncidentEntity;
 import com.pucminas.sgq.qualitycompliance.domain.NonComplianceEntity;
 import com.pucminas.sgq.qualitycompliance.enums.NonComplianceType;
 import com.pucminas.sgq.qualitycompliance.service.NonComplianceService;
@@ -20,6 +21,19 @@ public class NonComplianceController {
 
     @Autowired
     private NonComplianceService nonComplianceService;
+
+    @GetMapping("/nonCompliance/{id}")
+    public ResponseEntity<NonComplianceEntity> getById(@PathVariable("id") long id) {
+        try {
+            Optional<NonComplianceEntity> nonComplianceOpt = nonComplianceService.findById(id);
+            if (nonComplianceOpt.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+            return new ResponseEntity<>(nonComplianceOpt.get(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
     @GetMapping("/nonCompliances")
     public ResponseEntity<List<NonComplianceEntity>> getAllNonCompliances() {
