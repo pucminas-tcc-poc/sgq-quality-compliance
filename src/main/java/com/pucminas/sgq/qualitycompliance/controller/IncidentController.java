@@ -69,7 +69,7 @@ public class IncidentController {
     }
 
     @DeleteMapping("/incidents/{id}")
-    public ResponseEntity<HttpStatus> deleteIncident(@PathVariable("id") long id) {
+    public ResponseEntity<HttpStatus> deleteIncidentById(@PathVariable("id") long id) {
         try {
             incidentService.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -43,10 +43,6 @@ public class IncidentService {
         return incidentRepository.findByStatus(status);
     }
 
-    public List<IncidentEntity> getAllIncidentsByType(IncidentType type) {
-        return incidentRepository.findByType(type);
-    }
-
     public IncidentEntity save(IncidentEntity incidentEntity) {
         return incidentRepository.save(incidentEntity);
     }

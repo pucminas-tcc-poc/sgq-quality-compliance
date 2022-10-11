@@ -1,8 +1,7 @@
 package com.pucminas.sgq.qualitycompliance.vo;
 
+import com.pucminas.sgq.qualitycompliance.enums.NonComplianceType;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,5 +11,5 @@ import java.time.LocalDateTime;
 public class NonComplianceVO {
     String nonCompliance;
     String operationalConsequence;
-    String type;
+    NonComplianceType type;
 }

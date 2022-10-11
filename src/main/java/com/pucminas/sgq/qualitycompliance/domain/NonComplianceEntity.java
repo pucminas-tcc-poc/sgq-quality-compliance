@@ -23,7 +23,7 @@ public class NonComplianceEntity implements Serializable {
     private Long id;
 
     @Column(name = "des_non_compliance")
-    private String nonComplianceDescription;
+    private String description;
 
     @Column(name = "des_operational_consequence")
     private String operationalConsequence;
