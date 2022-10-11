@@ -40,11 +40,11 @@ public class IncidentService {
     }
 
     public List<IncidentEntity> getAllIncidentsByStatus(IncidentStatus status) {
-        return incidentRepository.findByStatus(status.toString());
+        return incidentRepository.findByStatus(status);
     }
 
     public List<IncidentEntity> getAllIncidentsByType(IncidentType type) {
-        return incidentRepository.findByType(type.toString());
+        return incidentRepository.findByType(type);
     }
 
     public IncidentEntity save(IncidentEntity incidentEntity) {
@@ -61,12 +61,39 @@ public class IncidentService {
 
     public IncidentEntity createIncident(IncidentVO incidentVO) {
         IncidentEntity incident = new IncidentEntity();
-        incident.setDescription(incidentVO.getIncident());
-        incident.setDemage(incidentVO.getDemage());
-        incident.setPlace(incidentVO.getPlace());
-        incident.setStatus(incidentVO.getStatus());
-        incident.setType(incidentVO.getType());
-        incident.setCreationDate(LocalDateTime.now());
+        return setupIncident(incident, incidentVO);
+    }
+
+    public IncidentEntity updateIncident(IncidentEntity incident, IncidentVO incidentVO) {
+        return setupIncident(incident, incidentVO);
+    }
+
+    private IncidentEntity setupIncident(IncidentEntity incident, IncidentVO incidentVO) {
+        if (Objects.nonNull(incidentVO.getIncident())) {
+            incident.setDescription(incidentVO.getIncident());
+        }
+
+        if (Objects.nonNull(incidentVO.getDemage())) {
+            incident.setDemage(incidentVO.getDemage());
+        }
+
+        if (Objects.nonNull(incidentVO.getPlace())) {
+            incident.setPlace(incidentVO.getPlace());
+        }
+
+        if (Objects.nonNull(incidentVO.getStatus())) {
+            incident.setStatus(incidentVO.getStatus());
+        }
+
+        if (Objects.nonNull(incidentVO.getType())) {
+            incident.setType(incidentVO.getType());
+        }
+
+        if (Objects.isNull(incident.getCreationDate())) {
+            incident.setCreationDate(LocalDateTime.now());
+        } else {
+            incident.setUpdateDate(LocalDateTime.now());
+        }
 
         if (Objects.nonNull(incidentVO.getPartId())) {
             Optional<PartEntity> partOpt = partService.findById(incidentVO.getPartId());
@@ -98,6 +125,5 @@ public class IncidentService {
 
         return incidentRepository.save(incident);
     }
-
 
 }
