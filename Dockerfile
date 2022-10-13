@@ -1,4 +1,9 @@
-# Derivando da imagem oficial do MySQL
-FROM mysql:5.7
-# Adicionando os scripts SQL para serem executados na criação do banco
-COPY ./src/main/resources/db/scripts/ /docker-entrypoint-initdb.d/
+FROM amazoncorretto:11-alpine-jdk
+
+ARG JAR_FILE=build/libs/sgq-quality-compliance-0.0.1-SNAPSHOT.jar
+
+WORKDIR /opt/app
+
+COPY ${JAR_FILE} app.jar
+
+ENTRYPOINT ["java","-jar","app.jar"]
